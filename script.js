@@ -3,6 +3,9 @@ function showContent() {
     const content = document.getElementById('content');
     const imagesDiv = document.getElementById('images');
     const poemDiv = document.getElementById('poem');
+    const emojiContainer = document.getElementById('emojiContainer');
+    const loveLetter = document.getElementById('loveLetter');
+    const loveAudio = new Audio('deineSprachnachricht.mp3');  // Pfad zur Sprachnachricht
 
     // Verstecke das Herz
     heart.classList.add('hidden');
@@ -10,8 +13,9 @@ function showContent() {
     // Zeige das Content-Div
     content.classList.remove('hidden');
 
-    // Stelle sicher, dass das Gedicht am Anfang versteckt ist
+    // Stelle sicher, dass das Gedicht & Emoji anfangs versteckt sind
     poemDiv.style.display = "none";
+    emojiContainer.classList.add("hidden");
 
     // Liste der Bilder
     const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
@@ -21,24 +25,50 @@ function showContent() {
     const img = document.createElement('img');
     img.src = images[imageIndex];
     img.alt = "Love Memory";
-    img.style.cursor = "pointer";  // Damit es klickbar aussieht
-    img.style.display = "block";  // Damit das Bild zentriert bleibt
-    img.style.margin = "20px auto";  // Abstand und zentrierte Darstellung
-    img.style.width = "250px";  // Größe der Bilder anpassen
+    img.style.cursor = "pointer";  
+    img.style.display = "block";
+    img.style.margin = "20px auto";
+    img.style.width = "250px";  
 
-    // Stelle sicher, dass nur EIN Bild sichtbar ist
-    imagesDiv.innerHTML = "";  // Vorheriges Bild löschen
+    imagesDiv.innerHTML = "";  
     imagesDiv.appendChild(img);
 
-    // Bild-Klick-Event: Zeigt das nächste Bild oder das Gedicht
+    // Bild-Klick-Event: Zeigt das nächste Bild oder das Emoji
     img.addEventListener("click", () => {
         imageIndex++;
 
         if (imageIndex < images.length) {
-            img.src = images[imageIndex];  // Nächstes Bild anzeigen
+            img.src = images[imageIndex];  
         } else {
-            img.style.display = "none";  // Letztes Bild ausblenden
-            poemDiv.style.display = "block";  // Gedicht anzeigen
+            img.style.display = "none";  
+            emojiContainer.classList.remove("hidden");  // Zeigt das 💌 Emoji an
         }
     });
+
+    // Klick-Event für das 💌-Emoji
+    loveLetter.addEventListener("click", () => {
+        emojiContainer.style.display = "none";  // Verstecke das Emoji
+        poemDiv.style.display = "block";  // Zeige das Gedicht
+        loveAudio.play();  // Spiele die Sprachnachricht ab
+        showHearts();  // Starte die Herz-Animation
+    });
+
+    function showHearts() {
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();  
+        }, 2000);
+    }
 }
