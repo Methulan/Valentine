@@ -32,12 +32,12 @@ body {
 }
 
 #images img {
-    width: 350px;  /* Bildgröße größer machen */
-    max-width: 90%;  /* Damit es auf kleinen Bildschirmen nicht zu groß wird */
-    display: block;
-    margin: 20px auto;
-    border-radius: 15px;  /* Abgerundete Ecken für ein schönes Design */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Weicher Schatten für ein schönes Aussehen */
+    width: 450px !important;  /* Jetzt 450px groß */
+    max-width: 100% !important;  /* Passt sich an den Bildschirm an */
+    display: block !important;
+    margin: 20px auto !important;
+    border-radius: 15px !important;  
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 #poem {
@@ -64,14 +64,14 @@ body {
 }
 
 #loveLetter {
-    font-size: 60px;  /* Emoji größer */
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    transition: transform 0.3s ease-in-out;
+    font-size: 80px !important;  /* Größe des Emojis erhöhen */
+    cursor: pointer !important;
+    display: block !important;
+    margin: 30px auto !important;
+    transition: transform 0.3s ease-in-out !important;
 }
 
 #loveLetter:hover {
-    transform: scale(1.3);  /* Beim Darüberfahren wird es größer */
+    transform: scale(1.5) !important;  /* Emoji wird noch größer beim Hover */
 }
 
