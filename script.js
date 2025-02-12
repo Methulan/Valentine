@@ -18,7 +18,7 @@ function showContent() {
     backgroundMusic.loop = true;  // Musik in Dauerschleife abspielen
 
     // Restlicher Code bleibt unverändert...
-}
+
     // Stelle sicher, dass das Gedicht & Emoji anfangs versteckt sind
     poemDiv.style.display = "none";
     emojiContainer.classList.add("hidden");
