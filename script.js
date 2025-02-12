@@ -4,29 +4,31 @@ function showContent() {
     const imagesDiv = document.getElementById('images');
     const poemDiv = document.getElementById('poem');
 
-    // Herz verschwinden lassen
+    // Verstecke das Herz
     heart.classList.add('hidden');
 
-    // Inhalte anzeigen
+    // Zeige das Content-Div
     content.classList.remove('hidden');
 
-    // Hier die Bildnamen einfügen (achte auf exakte Schreibweise!)
-    const images = [
-        'image1.jpg',
-        'image2.jpg',
-        'image3.jpg'
-    ];
+    // Liste der Bilder
+    const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+    let imageIndex = 0;
 
-    // Bilder zum HTML-Dokument hinzufügen
-    images.forEach(image => {
-        const img = document.createElement('img');
-        img.src = image;
-        img.alt = "Love Memory";  // Alternativtext für die Bilder
-        imagesDiv.appendChild(img);
+    // Erstes Bild erstellen
+    const img = document.createElement('img');
+    img.src = images[imageIndex];
+    img.alt = "Love Memory";
+    img.style.cursor = "pointer";  // Damit es klickbar aussieht
+    imagesDiv.appendChild(img);
+
+    // Bild-Klick-Event: Zeigt das nächste Bild oder das Gedicht
+    img.addEventListener("click", () => {
+        imageIndex++;
+        if (imageIndex < images.length) {
+            img.src = images[imageIndex];  // Lade nächstes Bild
+        } else {
+            img.classList.add('hidden');  // Letztes Bild ausblenden
+            poemDiv.classList.remove('hidden');  // Gedicht anzeigen
+        }
     });
-
-    // Gedicht nach einer kurzen Verzögerung anzeigen
-    setTimeout(() => {
-        poemDiv.classList.remove('hidden');
-    }, 2000);
 }
