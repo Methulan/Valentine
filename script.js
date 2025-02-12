@@ -5,7 +5,9 @@ function showContent() {
     const poemDiv = document.getElementById('poem');
     const emojiContainer = document.getElementById('emojiContainer');
     const loveLetter = document.getElementById('loveLetter');
-    const backgroundMusic = new Audio('hintergrundmusik.mp3'); // Hintergrundmusik
+    
+    // Hintergrundmusik laden
+    const backgroundMusic = new Audio('hintergrundmusik.mp3'); // Stelle sicher, dass die Datei existiert
 
     // 💖 Herz verschwinden lassen
     if (heart) {
@@ -15,9 +17,9 @@ function showContent() {
     // 🎬 Zeige den Haupt-Content
     content.classList.remove('hidden');
 
-    // 🎵 Versuche die Musik zu starten (falls blockiert, muss Nutzer interagieren)
+    // 🎵 Hintergrundmusik starten (wenn Browser es erlaubt)
     backgroundMusic.play().catch(() => {
-        console.log("Autoplay wurde blockiert. Nutzer muss zuerst klicken.");
+        console.log("Autoplay blockiert – Musik startet erst nach Benutzerinteraktion.");
     });
     backgroundMusic.loop = true;
 
@@ -36,7 +38,7 @@ function showContent() {
     img.style.cursor = "pointer";
     img.style.display = "block";
     img.style.margin = "20px auto";
-    img.style.width = "500px";  // Größere Bilder
+    img.style.width = "500px";  // Bilder vergrößern
     img.style.height = "auto";
 
     // Stelle sicher, dass nur EIN Bild sichtbar ist
