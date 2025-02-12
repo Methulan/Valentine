@@ -10,6 +10,9 @@ function showContent() {
     // Zeige das Content-Div
     content.classList.remove('hidden');
 
+    // Stelle sicher, dass das Gedicht am Anfang versteckt ist
+    poemDiv.style.display = "none";
+
     // Liste der Bilder
     const images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
     let imageIndex = 0;
@@ -30,11 +33,12 @@ function showContent() {
     // Bild-Klick-Event: Zeigt das nächste Bild oder das Gedicht
     img.addEventListener("click", () => {
         imageIndex++;
+
         if (imageIndex < images.length) {
             img.src = images[imageIndex];  // Nächstes Bild anzeigen
         } else {
-            img.classList.add('hidden');  // Letztes Bild ausblenden
-            poemDiv.classList.remove('hidden');  // Gedicht anzeigen
+            img.style.display = "none";  // Letztes Bild ausblenden
+            poemDiv.style.display = "block";  // Gedicht anzeigen
         }
     });
 }
