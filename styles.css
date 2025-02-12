@@ -32,8 +32,9 @@ body {
 }
 
 #images img {
-    width: 450px !important;  /* Jetzt 450px groß */
-    max-width: 100% !important;  /* Passt sich an den Bildschirm an */
+    width: 500px !important;  /* Größer machen */
+    height: auto !important;  /* Seitenverhältnis beibehalten */
+    max-width: none !important;  /* Entfernt die Begrenzung */
     display: block !important;
     margin: 20px auto !important;
     border-radius: 15px !important;  
