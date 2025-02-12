@@ -21,6 +21,7 @@ function showContent() {
     img.style.cursor = "pointer";  // Damit es klickbar aussieht
     img.style.display = "block";  // Damit das Bild zentriert bleibt
     img.style.margin = "20px auto";  // Abstand und zentrierte Darstellung
+    img.style.width = "250px";  // Größe der Bilder anpassen
 
     // Stelle sicher, dass nur EIN Bild sichtbar ist
     imagesDiv.innerHTML = "";  // Vorheriges Bild löschen
@@ -30,7 +31,7 @@ function showContent() {
     img.addEventListener("click", () => {
         imageIndex++;
         if (imageIndex < images.length) {
-            img.src = images[imageIndex];  // Lade nächstes Bild
+            img.src = images[imageIndex];  // Nächstes Bild anzeigen
         } else {
             img.classList.add('hidden');  // Letztes Bild ausblenden
             poemDiv.classList.remove('hidden');  // Gedicht anzeigen
