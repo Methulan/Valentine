@@ -1,0 +1,32 @@
+function showContent() {
+    const heart = document.getElementById('heart');
+    const content = document.getElementById('content');
+    const imagesDiv = document.getElementById('images');
+    const poemDiv = document.getElementById('poem');
+
+    // Herz verschwinden lassen
+    heart.classList.add('hidden');
+
+    // Inhalte anzeigen
+    content.classList.remove('hidden');
+
+    // Hier die Bildnamen einfügen (achte auf exakte Schreibweise!)
+    const images = [
+        'image1.jpg',
+        'image2.jpg',
+        'image3.jpg'
+    ];
+
+    // Bilder zum HTML-Dokument hinzufügen
+    images.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = "Love Memory";  // Alternativtext für die Bilder
+        imagesDiv.appendChild(img);
+    });
+
+    // Gedicht nach einer kurzen Verzögerung anzeigen
+    setTimeout(() => {
+        poemDiv.classList.remove('hidden');
+    }, 2000);
+}
