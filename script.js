@@ -28,8 +28,9 @@ function showContent() {
     img.style.cursor = "pointer";  
     img.style.display = "block";
     img.style.margin = "20px auto";
-    img.style.width = "450px";  // Stelle sicher, dass JavaScript das Bild größer setzt
-    img.style.height = "auto";  // Behalte das Seitenverhältnis bei 
+    img.style.width = "500px";  // Jetzt größer machen
+img.style.height = "auto";  // Seitenverhältnis beibehalten
+img.style.maxWidth = "none";  // Keine Begrenzung // Behalte das Seitenverhältnis bei 
 
     imagesDiv.innerHTML = "";  
     imagesDiv.appendChild(img);
