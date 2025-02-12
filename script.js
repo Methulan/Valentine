@@ -5,7 +5,7 @@ function showContent() {
     const poemDiv = document.getElementById('poem');
     const emojiContainer = document.getElementById('emojiContainer');
     const loveLetter = document.getElementById('loveLetter');
-    const loveAudio = new Audio('deineSprachnachricht.mp3');  // Pfad zur Sprachnachricht
+    const backgroundMusic = new Audio('hintergrundmusik.mp3'); // Musikdatei einfügen
 
     // Verstecke das Herz
     heart.classList.add('hidden');
@@ -13,6 +13,12 @@ function showContent() {
     // Zeige das Content-Div
     content.classList.remove('hidden');
 
+    // Starte die Musik
+    backgroundMusic.play();
+    backgroundMusic.loop = true;  // Musik in Dauerschleife abspielen
+
+    // Restlicher Code bleibt unverändert...
+}
     // Stelle sicher, dass das Gedicht & Emoji anfangs versteckt sind
     poemDiv.style.display = "none";
     emojiContainer.classList.add("hidden");
